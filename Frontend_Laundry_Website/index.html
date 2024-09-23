@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlueClean Laundry Service</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-blue-50">
+
+ <!-- Navbar -->
+ <nav class="bg-blue-600 p-4 text-white fixed w-full top-0 z-10">
+  <div class="container mx-auto flex justify-between items-center">
+    <h1 class="text-2xl font-bold">BlueClean Laundry</h1>
+    <button id="burger" class="md:hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+    <ul id="burger-menu" class="hidden md:flex space-x-4">
+      <li><a href="#home" class="hover:underline">Home</a></li>
+      <li><a href="#about" class="hover:underline">About Us</a></li>
+      <li class="relative group">
+        <a href="#services" class="hover:underline">Services</a>
+        <ul class="absolute left-0 hidden bg-white text-blue-900 group-hover:block shadow-lg">
+          <li><a href="booking.html?service=waf" class="block px-4 py-2 hover:bg-blue-100">Wash & Fold</a></li>
+          <li><a href="booking.html?service=dryclean" class="block px-4 py-2 hover:bg-blue-100">Dry Cleaning</a></li>
+          <li><a href="booking.html?service=ironing" class="block px-4 py-2 hover:bg-blue-100">Ironing</a></li>
+        </ul>
+      </li>
+      <li><a href="#testimonials" class="hover:underline">Testimonials</a></li>
+      <li><a href="#faq" class="hover:underline">FAQ</a></li>
+      <li><a href="#contact" class="hover:underline">Contact</a></li>
+      <li><a href="login.html" class="hover:underline">Login</a></li>
+      <li><a href="signup.html" class="hover:underline">Sign Up</a></li>
+    </ul>
+  </div>
+ </nav>
+
+
+
+  <!-- Hero Section -->
+  <section id="home" class="relative bg-blue-100 text-center py-28 mt-16 fade-in">
+    <div class="carousel absolute inset-0 z-0">
+      <div class="carousel-item active"><img src="img/carousel-1.jpg" alt="Laundry Image 1" class="object-cover h-full w-full"></div>
+      <div class="carousel-item hidden"><img src="img/carousel-2.jpg" alt="Laundry Image 2" class="object-cover h-full w-full"></div>
+      <div class="carousel-item hidden"><img src="img/carousel-1.jpg" alt="Laundry Image 3" class="object-cover h-full w-full"></div>
+      
+      <button id="prev" class="bg-blue-600 text-white rounded-full px-4 py-2 absolute left-4 top-1/2 transform -translate-y-1/2 z-10">Prev</button>
+      <button id="next" class="bg-blue-600 text-white rounded-full px-4 py-2 absolute right-4 top-1/2 transform -translate-y-1/2 z-10">Next</button>
+    </div>
+
+    <div class="relative z-10 container mx-auto">
+      <h2 class="text-5xl font-bold text-blue-900 mb-6 animate-bounce">Laundry Done Right!</h2>
+      <p class="text-lg text-gray-700 mb-8">Fresh, clean, and delivered right to your door.</p>
+      <a href="#services" class="bg-blue-600 text-white py-3 px-8 rounded-full hover:bg-blue-700 transition duration-300">Explore Our Services</a>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="py-20 bg-white fade-in">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center">
+      <div>
+        <img src="img/about.jpg" alt="About Us" class="rounded-lg shadow-md">
+      </div>
+      <div class="pl-8">
+        <h3 class="text-4xl font-bold text-blue-900 mb-4">Who We Are</h3>
+        <p class="text-gray-700 mb-6">BlueClean is your trusted laundry partner. We provide high-quality laundry services, including wash & fold, dry cleaning, and professional garment care for your delicate fabrics.</p>
+        <p class="text-gray-700 mb-6">Our mission is to make laundry day hassle-free, ensuring that your clothes are treated with the utmost care and returned to you looking fresh and clean.</p>
+        <a href="about-us.html" class="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 transition duration-300">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-blue-50 fade-in">
+    <div class="container mx-auto text-center">
+      <h3 class="text-4xl font-semibold text-blue-900 mb-10">Our Services</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 shadow-md rounded-lg hover:shadow-xl transition duration-300">
+          <img src="img/waf1 (1).jpeg" alt="Wash & Fold" class="w-full mb-4 rounded">
+          <h4 class="text-xl font-bold text-blue-900 mb-2">Wash & Fold</h4>
+          <p class="text-gray-600">Professional wash & fold services with doorstep delivery.</p>
+          <a href="booking.html?service=waf" class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300">Book Now</a>
+        </div>
+        <div class="bg-white p-6 shadow-md rounded-lg hover:shadow-xl transition duration-300">
+          <img src="img/dryclean (1).jpeg" alt="Dry Cleaning" class="w-full mb-4 rounded">
+          <h4 class="text-xl font-bold text-blue-900 mb-2">Dry Cleaning</h4>
+          <p class="text-gray-600">Expert dry cleaning for delicate and formal garments.</p>
+          <a href="booking.html?service=dryclean" class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300">Book Now</a>
+        </div>
+        <div class="bg-white p-6 shadow-md rounded-lg hover:shadow-xl transition duration-300">
+          <img src="img/iron (1).jpg" alt="Ironing" class="w-full mb-4 rounded">
+          <h4 class="text-xl font-bold text-blue-900 mb-2">Ironing</h4>
+          <p class="text-gray-600">Expert ironing service that keeps your clothes wrinkle-free and perfectly pressed.</p>
+          <a href="booking.html?service=ironing" class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-20 bg-white fade-in">
+    <div class="container mx-auto text-center">
+      <h3 class="text-4xl font-semibold text-blue-900 mb-10">What Our Customers Say</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-blue-100 p-6 shadow-md rounded-lg hover:shadow-xl transition duration-300">
+          <p class="text-gray-700 italic">"BlueClean's pickup and delivery service is a game-changer. My laundry is always fresh and perfectly cleaned!"</p>
+          <h5 class="text-blue-900 font-bold mt-4">- Alice B.</h5>
+          <img src="img/testimonial-1.jpg" alt="Alice" class="w-20 h-20 rounded-full mx-auto mt-4">
+        </div>
+        <div class="bg-blue-100 p-6 shadow-md rounded-lg hover:shadow-xl transition duration-300">
+          <p class="text-gray-700 italic">"I love the attention to detail with my dry cleaning. They handle delicate fabrics with care."</p>
+          <h5 class="text-blue-900 font-bold mt-4">- Mark H.</h5>
+          <img src="img/testimonial-2.jpg" alt="Mark" class="w-20 h-20 rounded-full mx-auto mt-4">
+        </div>
+        <div class="bg-blue-100 p-6 shadow-md rounded-lg hover:shadow-xl transition duration-300">
+          <p class="text-gray-700 italic">"Fast, reliable, and affordable. BlueClean is my go-to for all my laundry needs!"</p>
+          <h5 class="text-blue-900 font-bold mt-4">- Sarah L.</h5>
+          <img src="img/testimonial-3.jpg" alt="Sarah" class="w-20 h-20 rounded-full mx-auto mt-4">
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- FAQ Section -->
+ <section id="faq" class="py-20 bg-blue-50 fade-in">
+  <div class="container mx-auto text-center">
+    <h3 class="text-4xl font-semibold text-blue-900 mb-10">Frequently Asked Questions</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- FAQ 1 -->
+      <div>
+        <h4 class="text-2xl font-bold text-blue-900 mb-4 cursor-pointer" onclick="toggleFAQ(1)">How does the pickup and delivery service work?</h4>
+        <p id="faq1" class="text-gray-700 hidden">Simply schedule a pickup, and we'll collect your laundry from your home and return it clean and fresh.</p>
+      </div>
+      <!-- FAQ 2 -->
+      <div>
+        <h4 class="text-2xl font-bold text-blue-900 mb-4 cursor-pointer" onclick="toggleFAQ(2)">What types of fabrics do you handle?</h4>
+        <p id="faq2" class="text-gray-700 hidden">We handle a wide variety of fabrics, including cotton, wool, silk, and synthetic materials, ensuring quality care for all garments.</p>
+      </div>
+      <!-- FAQ 3 -->
+      <div>
+        <h4 class="text-2xl font-bold text-blue-900 mb-4 cursor-pointer" onclick="toggleFAQ(3)">Do you offer eco-friendly cleaning options?</h4>
+        <p id="faq3" class="text-gray-700 hidden">Yes, we offer eco-friendly cleaning solutions that are safe for you and the environment.</p>
+      </div>
+      <!-- FAQ 4 -->
+      <div>
+        <h4 class="text-2xl font-bold text-blue-900 mb-4 cursor-pointer" onclick="toggleFAQ(4)">How can I track my order?</h4>
+        <p id="faq4" class="text-gray-700 hidden">You can track your order through our website once your laundry is picked up.</p>
+      </div>
+    </div>
+  </div>
+ </section>
+
+ <!-- Contact Section -->
+ <section id="contact" class="py-20 bg-white fade-in">
+  <div class="container mx-auto text-center">
+    <h3 class="text-4xl font-semibold text-blue-900 mb-10">Get in Touch</h3>
+    <form action="#" method="POST" class="w-full max-w-lg mx-auto bg-blue-100 p-8 rounded-lg shadow-md">
+      <div class="mb-6">
+        <label for="name" class="block text-gray-700 mb-2">Name</label>
+        <input type="text" id="name" name="name" class="w-full p-3 border border-gray-300 rounded-lg" required>
+      </div>
+      <div class="mb-6">
+        <label for="email" class="block text-gray-700 mb-2">Email</label>
+        <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-lg" required>
+      </div>
+      <div class="mb-6">
+        <label for="message" class="block text-gray-700 mb-2">Message</label>
+        <textarea id="message" name="message" rows="4" class="w-full p-3 border border-gray-300 rounded-lg" required></textarea>
+      </div>
+      <button type="submit" class="bg-blue-600 text-white py-3 px-6 rounded-full hover:bg-blue-700 transition duration-300">Send Message</button>
+    </form>
+  </div>
+ </section>
+ <!-- Footer -->
+ <footer class="bg-blue-600 text-white py-8">
+  <div class="container mx-auto text-center">
+    <p class="text-lg font-semibold mb-2">&copy; 2024 BlueClean Laundry Service. All Rights Reserved.</p>
+    <div class="mt-4">
+      <p class="mb-2">Follow us on:</p>
+      <a href="#" class="text-white hover:underline mx-2">Facebook</a> | 
+      <a href="#" class="text-white hover:underline mx-2">Instagram</a> | 
+      <a href="#" class="text-white hover:underline mx-2">Twitter</a> | 
+      <a href="#" class="text-white hover:underline mx-2">LinkedIn</a>
+    </div>
+    <div class="mt-4">
+      <a href="#faq" class="text-white hover:underline mx-2">FAQ</a> | 
+      <a href="#contact" class="text-white hover:underline mx-2">Contact Us</a>
+    </div>
+    <div class="mt-4">
+      <p class="text-sm">Contact: support@bluecleanlaundry.com | Phone: (123) 456-7890</p>
+    </div>
+  </div>
+ </footer>
+
+ <script src="script.js"></script>
+  <script>
+    const burger = document.getElementById('burger');
+    const burgerMenu = document.getElementById('burger-menu');
+  
+    burger.addEventListener('click', () => {
+      burgerMenu.classList.toggle('hidden');
+    });
+  
+    // Dropdown toggle for mobile view
+    document.querySelectorAll('#burger-menu > li').forEach(item => {
+      item.addEventListener('click', (e) => {
+        const submenu = item.querySelector('ul');
+        if (submenu) {
+          submenu.classList.toggle('hidden');
+        }
+      });
+    });
+  </script> 
+ <button id="backToTop" class="fixed bottom-10 right-10 bg-blue-600 text-white rounded-full p-3 shadow-lg hover:bg-blue-700 transition duration-300 hidden">
+    ↑
+  </button>
+  <script>
+    // Show or hide the button based on scroll position
+    window.onscroll = function() {
+      const backToTopButton = document.getElementById('backToTop');
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        backToTopButton.style.display = 'block';
+      } else {
+        backToTopButton.style.display = 'none';
+      }
+    };
+  
+    // Scroll to top when the button is clicked
+    document.getElementById('backToTop').onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+  </script>  
+</body>
+</html>

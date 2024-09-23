@@ -1,0 +1,215 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 2rem;
+}
+
+/* Animation for fade-in */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+.carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0; /* Below the hero content */
+}
+
+.carousel-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+.carousel-item img {
+  object-fit: cover; /* Ensures the image covers the entire background */
+  height: 100%;
+  width: 100%;
+}
+
+#prev, #next {
+  z-index: 10; /* Ensure controls are on top of the images */
+}
+
+.relative {
+  z-index: 10; /* Text content should be above the carousel */
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+/* Navbar Styles */
+nav {
+  background-color: #1e3a8a; /* Dark blue */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section */
+#home {
+  background-image: url('https://via.placeholder.com/1200x400'); /* Replace with your carousel image */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#home h2 {
+  font-size: 3rem;
+}
+
+/* Burger Menu */
+.burger {
+  display: none;
+  font-size: 2rem;
+  color: white;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: white;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #60a5fa; /* Lighter blue on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .burger {
+      display: block;
+      cursor: pointer;
+  }
+
+  .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      background: white;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      z-index: 10;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.active {
+      display: flex;
+  }
+
+  .nav-links a {
+      padding: 0.5rem 1rem;
+      text-align: center;
+      color: #1e3a8a; /* Dark blue for mobile links */
+  }
+}
+
+/* About Us Section */
+#about {
+  background: #e0f2fe; /* Light blue */
+  padding: 2rem;
+}
+
+#about img {
+  max-width: 100%;
+  border-radius: 0.5rem;
+}
+
+/* Services Section */
+#services {
+  padding: 2rem 0;
+}
+
+#services .bg-white {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#services .bg-white:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Testimonials Section */
+#testimonials {
+  padding: 2rem 0;
+}
+
+.testimonial-card {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  transition: transform 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: scale(1.05);
+}
+
+/* FAQ Section */
+#faq {
+  padding: 2rem 0;
+}
+
+#faq h4 {
+  cursor: pointer;
+}
+
+/* Contact Section */
+#contact {
+  padding: 2rem 0;
+}
+
+#contact form {
+  background: #e0f2fe; /* Light blue for form */
+  border-radius: 0.5rem;
+}
+
+/* Footer Styles */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  background: #1e3a8a; /* Dark blue */
+  color: white;
+}
+
+footer a {
+  margin: 0 0.5rem;
+  color: white;
+  transition: color 0.3s;
+}
+#backToTop {
+  display: none; /* Initially hide the button */
+  z-index: 1000; /* Ensure it stays on top */
+}

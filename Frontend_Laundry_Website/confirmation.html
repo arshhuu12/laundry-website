@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmation - BlueClean Laundry</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-blue-50">
+
+  <header class="bg-blue-600 p-4 text-white text-center">
+    <h1 class="text-2xl font-bold">BlueClean Laundry</h1>
+  </header>
+
+  <section class="py-20 mt-10 text-center">
+    <h2 class="text-4xl font-bold text-blue-900 mb-8">Booking Confirmation</h2>
+    
+    <p class="text-lg mb-4">Thank you for your booking!</p>
+    <p class="text-lg mb-4">We look forward to serving you!</p>
+    
+    <p id="paymentMethodDisplay" class="text-lg mb-4"></p>
+
+    <button onclick="window.location.href='index.html'" class="bg-blue-600 text-white py-3 px-6 rounded-full hover:bg-blue-700 transition duration-300 mt-4">Back to Home</button>
+  </section>
+
+  <script>
+    // Retrieve the payment method from URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const paymentMethod = urlParams.get('paymentMethod');
+
+    // Display payment method
+    if (paymentMethod) {
+      document.getElementById('paymentMethodDisplay').textContent = `Payment Method: ${paymentMethod}`;
+    }
+  </script>
+
+</body>
+</html>

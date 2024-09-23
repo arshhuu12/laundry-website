@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking - BlueClean Laundry</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .error-message {
+      color: red;
+      font-size: 0.875rem;
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-blue-50">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-600 p-4 text-white fixed w-full top-0 z-10">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">BlueClean Laundry</h1>
+    </div>
+  </nav>
+
+  <!-- Booking Form Section -->
+  <section class="py-20 mt-20">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold text-blue-900 mb-8">Book Your Service</h2>
+      <form id="bookingForm" action="payment.html" method="GET" class="bg-white p-8 rounded-lg shadow-md max-w-lg mx-auto">
+        <!-- Service Selection -->
+        <div class="mb-6">
+          <label for="service" class="block text-left font-semibold text-gray-700 mb-2">Service</label>
+          <select id="service" name="service" class="w-full p-3 border border-gray-300 rounded-lg" required>
+            <option value="wash_fold">Wash & Fold</option>
+            <option value="dry_cleaning">Dry Cleaning</option>
+            <option value="ironing">Ironing</option>
+          </select>
+        </div>
+        <!-- Quantity Selection -->
+        <div class="mb-6">
+          <label for="quantity" class="block text-left font-semibold text-gray-700 mb-2">Quantity (kg)</label>
+          <input type="number" id="quantity" name="quantity" min="1" class="w-full p-3 border border-gray-300 rounded-lg" required>
+          <p id="quantityError" class="error-message">Please enter a valid quantity.</p>
+        </div>
+        <!-- Date Selection -->
+        <div class="mb-6">
+          <label for="date" class="block text-left font-semibold text-gray-700 mb-2">Choose Date</label>
+          <input type="date" id="date" name="date" class="w-full p-3 border border-gray-300 rounded-lg" required>
+          <p id="dateError" class="error-message">Please select a valid date.</p>
+        </div>
+        <!-- Time Selection -->
+        <div class="mb-6">
+          <label for="time" class="block text-left font-semibold text-gray-700 mb-2">Preferred Time</label>
+          <input type="time" id="time" name="time" class="w-full p-3 border border-gray-300 rounded-lg" required>
+          <p id="timeError" class="error-message">Please select a valid time.</p>
+        </div>
+        <!-- Contact Information -->
+        <div class="mb-6">
+          <label for="contact" class="block text-left font-semibold text-gray-700 mb-2">Contact Information</label>
+          <input type="text" id="contact" name="contact" placeholder="Phone Number" class="w-full p-3 border border-gray-300 rounded-lg" required>
+          <p id="contactError" class="error-message">Please enter a valid phone number.</p>
+        </div>
+        <!-- Price Display -->
+        <div class="mb-6">
+          <p class="text-lg font-bold" id="priceDisplay">Price: ₹0</p>
+        </div>
+        <!-- Submit Button -->
+        <button type="submit" class="bg-blue-600 text-white py-3 px-6 rounded-full hover:bg-blue-700 transition duration-300">Proceed to Payment</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="bg-blue-600 text-white py-6 text-center">
+    <p>&copy; 2024 BlueClean Laundry Service. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Define price per kg for each service
+    const prices = {
+      'wash_fold': 50,       // Price per kg for Wash & Fold
+      'dry_cleaning': 100,   // Price per kg for Dry Cleaning
+      'ironing': 30          // Price per kg for Ironing
+    };
+
+    const quantityInput = document.getElementById('quantity');
+    const priceDisplay = document.getElementById('priceDisplay');
+
+    // Update price when quantity changes
+    quantityInput.addEventListener('input', function() {
+      const service = document.getElementById('service').value;
+      const quantity = quantityInput.value;
+
+      if (quantity) {
+        const price = prices[service] * quantity;
+        priceDisplay.textContent = `Price: ₹${price}`;
+      } else {
+        priceDisplay.textContent = 'Price: ₹0';
+      }
+    });
+
+    // Update price when service changes
+    document.getElementById('service').addEventListener('change', function() {
+      quantityInput.dispatchEvent(new Event('input'));
+    });
+
+    // Validate booking form
+    document.getElementById('bookingForm').addEventListener('submit', function(event) {
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+      const contact = document.getElementById('contact').value;
+      const quantity = quantityInput.value;
+
+      let valid = true;
+
+      if (!date) {
+        document.getElementById('dateError').style.display = 'block';
+        valid = false;
+      } else {
+        document.getElementById('dateError').style.display = 'none';
+      }
+
+      if (!time) {
+        document.getElementById('timeError').style.display = 'block';
+        valid = false;
+      } else {
+        document.getElementById('timeError').style.display = 'none';
+      }
+
+      if (!contact || contact.length < 10 || isNaN(contact)) {
+        document.getElementById('contactError').style.display = 'block';
+        valid = false;
+      } else {
+        document.getElementById('contactError').style.display = 'none';
+      }
+
+      if (!quantity || quantity < 1) {
+        document.getElementById('quantityError').style.display = 'block';
+        valid = false;
+      } else {
+        document.getElementById('quantityError').style.display = 'none';
+      }
+
+      if (!valid) {
+        event.preventDefault(); // Prevent form submission if invalid
+      }
+    });
+  </script>
+</body>
+</html>
